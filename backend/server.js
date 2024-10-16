@@ -16,7 +16,11 @@ const allowedOrigins = [
   'http://localhost:8080', 
   'http://localhost/StevanusFirman/',
   'http://localhost',
-  'http://localhost:80'
+  'http://localhost:80',
+  'http://20.92.167.203/StevanusFirman/',
+  'http://20.92.167.203',
+  'http://20.92.167.203:3000',
+  'http://20.92.167.203:80'
 ];
 
 // Middleware CORS
