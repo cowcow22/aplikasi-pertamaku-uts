@@ -1,23 +1,25 @@
 <script setup>
-import { ref } from 'vue';
-import CommentSection from './components/CommentSection.vue';
+import { ref } from "vue";
+import CommentSection from "./components/CommentSection.vue";
 
-const userId = ref('');
+const userId = ref("");
 const users = ref(null);
-const newEmail = ref('');
+const newEmail = ref("");
 
 const getUser = async () => {
-  const response = await fetch(`http://localhost:3000/api/user/${userId.value}`);
+  const response = await fetch(
+    `http://localhost:3000/api/user/${userId.value}`
+  );
   users.value = await response.json();
 };
 
 const changeEmail = async () => {
-  await fetch('http://localhost:3000/api/change-email', {
-    method: 'POST',
+  await fetch(`http://localhost:3000/api/user/${userId.value}/change-email`, {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
+      "Content-Type": "application/json",
     },
-    body: `email=${newEmail.value}`,
+    body: JSON.stringify({ email: newEmail.value }),
   });
 };
 </script>
